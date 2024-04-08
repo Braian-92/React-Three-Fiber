@@ -14,7 +14,11 @@ export default function Box(props){
     <mesh 
       {...props} 
       ref={ref}
-      onPointerDown={() => {console.log(ref.current)}}
+      onPointerDown={(e) => {console.log('pinter Down: ' + e.object.name)}}
+      onPointerUp={(e) => {console.log('pinter Up: ' + e.object.name)}}
+      onPointerOver={(e) => {console.log('pinter Over: ' + e.object.name)}}
+      onPointerOut={(e) => {console.log('pinter Out: ' + e.object.name)}}
+      onUpdate={(self) => {console.log(self)}}
     >
       <boxGeometry />
       <meshBasicMaterial color={0x00ff00} wireframe />
