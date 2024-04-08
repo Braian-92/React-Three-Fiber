@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import Polyhedron from './Polyhedron_luces'
 import * as THREE from 'three'
-import { Stats, OrbitControls } from '@react-three/drei'
+import { Stats, OrbitControls, Sphere } from '@react-three/drei'
 import { useControls } from 'leva'
 import { useRef } from 'react'
 
@@ -99,7 +99,11 @@ function Lights() {
     <>
       <ambientLight ref={ambientRef} />
       <directionalLight ref={directionalRef} />
-      <pointLight ref={pointRef} />
+      <pointLight ref={pointRef} >
+        <mesh>
+          <sphereGeometry args={[0.25]} />
+        </mesh>
+      </pointLight>
       <spotLight ref={spotRef} />
     </>
   )
