@@ -9,6 +9,7 @@ import App_luces from './App_luces'
 import App_sombras from './App_sombras'
 import App_texture_loader from './App_texture_loader'
 import App_enviroment from './App_enviroment'
+import App_gtlf_loader_02_avanzado from './App_gtlf_loader_02_avanzado'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
     {/* <App_luces /> */}
     {/* <App_sombras /> */}
     {/* <App_texture_loader /> */}
-    <App_enviroment />
+    {/* <App_enviroment /> */}
+    <App_gtlf_loader_02_avanzado />
   </StrictMode>
 )
