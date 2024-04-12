@@ -6,6 +6,7 @@ import App_polyhedron from './App_polyhedron'
 import App_leva from './App_leva'
 import App_materials from './App_materials'
 import App_luces from './App_luces'
+import App_sombras from './App_sombras'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
     {/* <App_polyhedron /> */}
     {/* <App_leva /> */}
     {/* <App_materials /> */}
-    <App_luces />
+    {/* <App_luces /> */}
+    <App_sombras />
   </StrictMode>
 )
