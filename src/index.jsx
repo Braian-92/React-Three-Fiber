@@ -8,6 +8,7 @@ import App_materials from './App_materials'
 import App_luces from './App_luces'
 import App_sombras from './App_sombras'
 import App_texture_loader from './App_texture_loader'
+import App_enviroment from './App_enviroment'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
     {/* <App_materials /> */}
     {/* <App_luces /> */}
     {/* <App_sombras /> */}
-    <App_texture_loader />
+    {/* <App_texture_loader /> */}
+    <App_enviroment />
   </StrictMode>
 )
