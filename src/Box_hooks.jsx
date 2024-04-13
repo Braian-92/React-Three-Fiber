@@ -8,49 +8,52 @@ export default function Box(props) {
   const keyMap = props.keyMap
   const [selected, setSelected] = useState(props.selected)
   const { camera } = useThree()
-  
-  // Utilizar Leva para controlar la opción de dirección de la cámara
+
   const { direccionCamara } = useControls({
-    direccionCamara: false,
+    direccionCamara: true, // Modo de movimiento en dirección de la cámara seleccionado por defecto
   })
 
   useFrame((_, delta) => {
-    if (direccionCamara) {
-      const direction = camera.getWorldDirection(new THREE.Vector3()).setY(0).normalize() // Fijar el componente y a 0
+    if (selected) {
+      let direction = new THREE.Vector3()
+
+      if (direccionCamara) {
+        direction = camera.getWorldDirection(new THREE.Vector3()).setY(0).normalize()
+      } else {
+        direction = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion)
+      }
+
       const speed = 1
 
-      if (keyMap['KeyA'] && selected) {
+      // Movimiento
+      if (keyMap['KeyA']) {
         ref.current.position.addScaledVector(direction.clone().cross(new THREE.Vector3(0, 1, 0)), -speed * delta)
       }
-      if (keyMap['KeyD'] && selected) {
+      if (keyMap['KeyD']) {
         ref.current.position.addScaledVector(direction.clone().cross(new THREE.Vector3(0, 1, 0)), speed * delta)
       }
-      if (keyMap['KeyW'] && selected) {
-        ref.current.position.add(direction.clone().multiplyScalar(speed * delta)) // Cambiado el signo para el movimiento hacia adelante
+      if (keyMap['KeyW']) {
+        ref.current.position.add(direction.clone().multiplyScalar(speed * delta))
       }
-      if (keyMap['KeyS'] && selected) {
-        ref.current.position.add(direction.clone().multiplyScalar(-speed * delta)) // Cambiado el signo para el movimiento hacia atrás
+      if (keyMap['KeyS']) {
+        ref.current.position.add(direction.clone().multiplyScalar(-speed * delta))
       }
-    } else {
-      if (keyMap['KeyA'] && selected) {
-        ref.current.position.x -= 1 * delta
-      }
-      if (keyMap['KeyD'] && selected) {
-        ref.current.position.x += 1 * delta
-      }
-      if (keyMap['KeyW'] && selected) {
-        ref.current.position.z -= 1 * delta
-      }
-      if (keyMap['KeyS'] && selected) {
-        ref.current.position.z += 1 * delta
+
+      // Orientación hacia la cámara
+      if (!direccionCamara) {
+        ref.current.lookAt(camera.position)
+      } else {
+        // Obtener la rotación en el eje Y
+        const rotationY = Math.atan2(direction.x, direction.z)
+        ref.current.rotation.y = rotationY
       }
     }
   })
 
   return (
     <mesh ref={ref} {...props} onPointerDown={() => setSelected(!selected)}>
-      <boxGeometry />
-      <meshBasicMaterial color={0x00ff00} wireframe={!selected} />
+      <boxGeometry args={[1, 0.5, 2]} /> {/* Geometría de caja con dimensiones personalizadas */}
+      <meshBasicMaterial color={selected ? 0x00ff00 : 0xff0000} wireframe={!selected} />
     </mesh>
   )
 }
