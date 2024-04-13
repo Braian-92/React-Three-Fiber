@@ -11,6 +11,7 @@ import App_texture_loader from './App_texture_loader'
 import App_enviroment from './App_enviroment'
 import App_gtlf_loader_02_avanzado from './App_gtlf_loader_02_avanzado'
 import App_gtlf_loader_03_herramientas from './App_gtlf_loader_03_herramientas'
+import App_gtlf_loader_04_anotaciones from './App_gtlf_loader_04_anotaciones'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
     {/* <App_texture_loader /> */}
     {/* <App_enviroment /> */}
     {/* <App_gtlf_loader_02_avanzado /> */}
-    <App_gtlf_loader_03_herramientas />
+    {/* <App_gtlf_loader_03_herramientas /> */}
+    <App_gtlf_loader_04_anotaciones />
   </StrictMode>
 )
