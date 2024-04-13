@@ -15,6 +15,7 @@ import App_gtlf_loader_03_herramientas from './App_gtlf_loader_03_herramientas'
 import App_gtlf_loader_04_anotaciones from './App_gtlf_loader_04_anotaciones'
 import App_gltfjsx from './App_gltfjsx'
 import App_lerp from './App_lerp'
+import App_hooks from './App_hooks'
 
 const apps = [
   { name: 'App', component: <App /> },
@@ -29,7 +30,8 @@ const apps = [
   { name: 'App_gtlf_loader_03_herramientas', component: <App_gtlf_loader_03_herramientas /> },
   { name: 'App_gtlf_loader_04_anotaciones', component: <App_gtlf_loader_04_anotaciones /> },
   { name: 'App_gltfjsx', component: <App_gltfjsx /> },
-  { name: 'App_lerp', component: <App_lerp /> }
+  { name: 'App_lerp', component: <App_lerp /> },
+  { name: 'App_hooks', component: <App_hooks /> }
 ]
 
 function Root() {
