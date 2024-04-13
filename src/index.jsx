@@ -31,7 +31,7 @@ const apps = [
 ]
 
 function Root() {
-  const [selectedApp, setSelectedApp] = useState(0)
+  const [selectedApp, setSelectedApp] = useState(apps.length - 1)
 
   return (
     <StrictMode>
