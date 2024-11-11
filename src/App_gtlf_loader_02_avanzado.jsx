@@ -9,7 +9,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
 import { Leva, useControls } from 'leva'
 
 function Model() {
-  const { scene } = useLoader(GLTFLoader, '/models/scene.glb')
+  const { scene } = useLoader(GLTFLoader, './models/scene.glb')
 
   const {
     x,

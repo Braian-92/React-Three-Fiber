@@ -6,7 +6,7 @@ import { Color } from 'three'
 
 export function Model() {
   const [hovered, setHovered] = useState(false)
-  const { nodes, materials } = useGLTF('/models/shoe-draco.glb')
+  const { nodes, materials } = useGLTF('./models/shoe-draco.glb')
 
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'

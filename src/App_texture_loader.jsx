@@ -3,7 +3,7 @@ import { Canvas, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
 
 export default function App() {
-  const gltf = useLoader(GLTFLoader, '/models/monkey.glb')
+  const gltf = useLoader(GLTFLoader, './models/monkey.glb')
 
   return (
     <Canvas camera={{ position: [-0.5, 1, 2] }} shadows>
